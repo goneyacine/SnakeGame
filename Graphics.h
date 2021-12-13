@@ -1,28 +1,28 @@
 #pragma once
 #include <iostream>
 #include <vector>
-class Node
+class GridNode
 {
 public:
-	int m_xIndex, m_yIndex;
+	int g_xIndex, g_yIndex;
 	//if the current node is a part of the snake body this boolean will be true
-	bool isSnake;
-	Node(int xIndex, int yIndex);
+	bool g_isSnake;
+	GridNode(int t_xIndex, int t_yIndex);
 };
 class Grid
 {
 private:
 	int m_xSize, m_ySize, m_nodesNum;
-	int nodeSize[2];
-	std::vector<Node> nodes;
+	int m_nodeSize[2];
+	std::vector<GridNode> m_nodes;
 public:
-	Grid(int xSize, int ySize, int nodesNum);
-	void Update(int xSize, int ySize);
+	Grid(int t_xSize, int t_ySize, int t_nodesNum);
+	void Update(int t_xSize, int t_ySize);
 	int getNodeXSize();
 	int getNodeYSize();
 	int getNodesNum();
-	std::vector<Node> getNodes();
+	std::vector<GridNode> getNodes();
 };
-Grid SetUpGrid(int xSize, int ySize, int nodesNum);
-void UpdateGrid(Grid* grid, int xSize, int ySize, HDC* hdc, HWND* hWnd, PAINTSTRUCT* ps);
+Grid SetUpGrid(int t_xSize, int t_ySize, int t_nodesNum);
+void UpdateGrid(Grid* t_grid, int t_xSize, int t_ySize, HDC* t_hdc, HWND* t_hWnd, PAINTSTRUCT* t_ps);
 
